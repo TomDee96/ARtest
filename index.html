@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A-Frame AR.js Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Permissions-Policy" content="camera=(self); gyroscope=(self); accelerometer=(self); xr-spatial-tracking=(self)">
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #fullscreen-button { position: absolute; z-index: 999; top: 10px; right: 10px; }
+  </style>
+</head>
+<body>
+  <button id="fullscreen-button">Enter Fullscreen</button>
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <a-marker preset="hiro">
+      <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script>
+    document.getElementById('fullscreen-button').addEventListener('click', function () {
+      var elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
