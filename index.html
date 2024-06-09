@@ -13,15 +13,19 @@
 </head>
 <body>
   <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
-    <a-marker type="pattern" url="pattern-Monster_AR.patt">
-      <a-box position="0 0.5 0" material="color: yellow;"></a-box>
-    </a-marker>
-    <a-marker type="pattern" url="pattern-hiro.patt">
-      <a-box position="0 0.5 0" material="color: blue;"></a-box>
+    <a-marker type="pattern" url="pattern-Monster_AR.patt" id="marker">
+      <a-box position="0 0.5 0" material="color: yellow; visible="false""></a-box>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
+
+    <script>
+    document.querySelector('#marker').addEventListener('markerFound', (event) => {
+      window.location.href = 'https://google.com';  // Replace with your desired URL
+    });
+  </script>
 </body>
 </html>
+
 
 
