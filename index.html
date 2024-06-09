@@ -19,9 +19,9 @@
     <a-entity camera></a-entity>
   </a-scene>
 
-    <script>
+ <script>
     document.querySelector('#marker').addEventListener('markerFound', (event) => {
-      window.location.href = 'https://google.com';  // Replace with your desired URL
+      parent.postMessage('markerFound', '*');  // Send message to parent page
     });
   </script>
 </body>
