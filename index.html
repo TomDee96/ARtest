@@ -20,7 +20,6 @@
         src="Chef1_AR.png"
         position="0 0.5 0"
         rotation="0 0 0"
-        gesture-detector
         look-at="[camera]"
         visible="true">
       </a-image>
@@ -28,31 +27,6 @@
     <a-entity camera></a-entity>
   </a-scene>
 
-  <script>
-    AFRAME.registerComponent('gesture-handler', {
-      schema: {
-        enabled: { default: true },
-        rotationFactor: { default: 5 }
-      },
-      init: function () {
-        this.handleRotation = this.handleRotation.bind(this);
-        this.el.sceneEl.addEventListener('onefingermove', this.handleRotation);
-      },
-      handleRotation: function (event) {
-        if (this.data.enabled) {
-          this.el.object3D.rotation.y += event.detail.positionChange.x * this.data.rotationFactor * 0.01;
-          this.el.object3D.rotation.x += event.detail.positionChange.y * this.data.rotationFactor * 0.01;
-        }
-      }
-    });
-
-    document.querySelector('a-image').setAttribute('gesture-handler', '');
-    
-    document.querySelector('#marker').addEventListener('markerFound', (event) => {
-      console.log('Marker found, sending message');
-      parent.postMessage('markerFound', '*');  // Send message to parent page
-    });
-  </script>
 </body>
 </html>
 
