@@ -12,50 +12,25 @@
   </style>
 </head>
 <body>
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;" xr-mode-ui="enabled: false">
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" xr-mode-ui="enabled: false">
     <a-marker type="pattern" url="Chef1.patt" id="marker1">
-     <a-image src="Chef1_AR.png"
-        scale="2 2 2"
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        visible="true">
-     </a-image>
+      <a-image src="Chef1_AR.png" position="0 0.5 0" rotation="-90 0 0" look-at="[camera]" visible="true" width="2" height="2"></a-image>
     </a-marker>
 
     <a-marker type="pattern" url="Chef2.patt" id="marker2">
-     <a-image src="Chef2_AR.png"
-        scale="2 2 2"
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        visible="true">
-     </a-image>
+      <a-image src="Chef2_AR.png" position="0 0.5 0" rotation="-90 0 0" look-at="[camera]" visible="true" width="2" height="2"></a-image>
     </a-marker>
-
+    
     <a-marker type="pattern" url="Chef3.patt" id="marker3">
-     <a-image src="Chef3_AR.png"
-        scale="2 2 2"
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        visible="true">
-     </a-image>
+      <a-image src="Chef3_AR.png" position="0 2 0" rotation="-90 0 0" look-at="[camera]" visible="true" width="2" height="2"></a-image>
     </a-marker>
-
+    
     <a-marker type="pattern" url="Chef4.patt" id="marker4">
-     <a-image src="Chef4_AR.png"
-        scale="2 2 2"
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        visible="true">
-     </a-image>
+      <a-image src="Chef4_AR.png" position="0 0.5 0" rotation="-90 0 0" look-at="[camera]" visible="true" width="2" height="2"></a-image>
     </a-marker>
 
     <a-marker type="pattern" url="Chef5.patt" id="marker5">
-     <a-image src="Chef5_AR.png"
-        scale="2 2 2"
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        visible="true">
-     </a-image>
+      <a-image src="Chef5_AR.png" position="0 0.5 0" rotation="-90 0 0" look-at="[camera]" visible="true" width="2" height="2"></a-image>
     </a-marker>
 
     <a-entity camera></a-entity>
