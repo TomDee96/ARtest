@@ -12,18 +12,14 @@
   </style>
 </head>
 <body>
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" xr-mode-ui="enabled: false>
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" xr-mode-ui="enabled: false">
     <a-marker type="pattern" url="Chef1.patt" id="marker">
-      <a-image src="Chef1_AR.png"
+     <a-image src="Chef1_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
         rotation="-90 0 0"
         anchored="persistent: true"
-        visible="true"
-
-        
-        
-        </a-image>
+        visible="true"></a-image>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
