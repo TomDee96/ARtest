@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Permissions-Policy" content="camera=(self), gyroscope=(self), accelerometer=(self), xr-spatial-tracking=(self)">
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-gesture-detector-component@3.0.1/dist/aframe-gesture-detector-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   <style>
     body { margin: 0; overflow: hidden; }
@@ -14,12 +16,36 @@
 <body>
   <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <a-marker type="pattern" url="pattern-Chef1.patt" id="marker">
-      <a-image src="Chef1_AR.png"0 0 0" look-at="[camera]" visible="true"></a-image>
+      <a-image src="Chef1_AR.png 
+        position="0 0.5 0"
+        rotation="0 0 0"
+        gesture-detector
+        look-at="[camera]"
+        visible="true"></a-image>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 
-  <script>
+<script>
+    AFRAME.registerComponent('gesture-handler', {
+      schema: {
+        enabled: { default: true },
+        rotationFactor: { default: 5 }
+      },
+      init: function () {
+        this.handleRotation = this.handleRotation.bind(this);
+        this.el.sceneEl.addEventListener('onefingermove', this.handleRotation);
+      },
+      handleRotation: function (event) {
+        if (this.data.enabled) {
+          this.el.object3D.rotation.y += event.detail.positionChange.x * this.data.rotationFactor * 0.01;
+          this.el.object3D.rotation.x += event.detail.positionChange.y * this.data.rotationFactor * 0.01;
+        }
+      }
+    });
+
+    document.querySelector('a-image').setAttribute('gesture-handler', '');
+    
     document.querySelector('#marker').addEventListener('markerFound', (event) => {
       console.log('Marker found, sending message');
       parent.postMessage('markerFound', '*');  // Send message to parent page
