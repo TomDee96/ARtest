@@ -13,7 +13,7 @@
 </head>
 <body>
   <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" xr-mode-ui="enabled: false">
-    <a-marker type="pattern" url="Chef1.patt" id="marker">
+    <a-marker type="pattern" url="Chef1.patt" id="marker1">
      <a-image src="Chef1_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
@@ -22,7 +22,7 @@
      </a-image>
     </a-marker>
 
-    <a-marker type="pattern" url="Chef2.patt" id="marker">
+    <a-marker type="pattern" url="Chef2.patt" id="marker2">
      <a-image src="Chef2_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
@@ -31,7 +31,7 @@
      </a-image>
     </a-marker>
 
-    <a-marker type="pattern" url="Chef3.patt" id="marker">
+    <a-marker type="pattern" url="Chef3.patt" id="marker3">
      <a-image src="Chef3_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
@@ -40,7 +40,7 @@
      </a-image>
     </a-marker>
 
-    <a-marker type="pattern" url="Chef4.patt" id="marker">
+    <a-marker type="pattern" url="Chef4.patt" id="marker4">
      <a-image src="Chef4_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
@@ -49,7 +49,7 @@
      </a-image>
     </a-marker>
 
-    <a-marker type="pattern" url="Chef5.patt" id="marker">
+    <a-marker type="pattern" url="Chef5.patt" id="marker5">
      <a-image src="Chef5_AR.png"
         scale="2 2 2"
         position="0 0.5 0"
@@ -61,12 +61,6 @@
     <a-entity camera></a-entity>
   </a-scene>
 
-  <script>
-    document.querySelector('#marker').addEventListener('markerFound', (event) => {
-      console.log('Marker found, sending message');
-      parent.postMessage('markerFound', '*');  // Send message to parent page
-    });
-  </script>
 </body>
 </html>
 
